@@ -1,6 +1,6 @@
 <template>
   <!-- <div> -->
-<!-- <p>{{propValue}}</p> -->
+  <!-- <p>{{propValue}}</p> -->
   <div ref="dom" class="charts chart-bar"></div>
   <!-- </div> -->
 </template>
@@ -30,13 +30,17 @@ export default {
   data() {
     return {
       dom: null,
+      yAxis:0,
+    xAxis:0,
     };
   },
   computed: {
     // ...mapGetters(['getAccessId'])
   },
   methods: {
-    changeDate(v) {
+    changeDate() {
+      let v = this.xAxis
+      let y = this.yAxis
       var myChart = echarts.init(this.$refs.dom);
       // 绘制图表
       myChart.setOption({
@@ -52,11 +56,10 @@ export default {
           {
             name: "销量",
             type: "bar",
-            data: [5, 20, 36],
+            data: [y, 20, 36],
           },
         ],
       });
-
     },
     resize() {
       this.dom.resize();
@@ -65,14 +68,20 @@ export default {
   mounted() {
     this.$nextTick(() => {
       console.log("echarts111");
-      let v = this.element.style.xAxis + ''
-      this.changeDate(v);
+      this.xAxis = this.element.style.xAxis;
+      this.yAxis = this.element.style.yAxis;
+      this.changeDate();
     });
   },
   watch: {
-   'element.style.xAxis' (v) {
-this.changeDate(v);
-   }
+    "element.style.xAxis"(v) {
+      this.xAxis = v;
+      this.changeDate();
+    },
+    "element.style.yAxis"(v) {
+      this.yAxis = v
+      this.changeDate();
+    }
   },
   beforeDestroy() {
     // off(window, "resize", this.resize);

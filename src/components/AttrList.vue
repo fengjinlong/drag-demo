@@ -53,7 +53,7 @@
         <el-input
           v-else
           v-model.number="curComponent.style[key]"
-          type="number"
+          :type="key !== 'xAxis' ? 'number' : 'text'"
         />
       </el-form-item>
       <el-form-item

@@ -19,7 +19,8 @@ const list = [
         icon: 'wenben',
         propValue: ["衬衫", "羊毛衫", "雪纺衫"],
         style: {
-            xAxis: 'x1',
+            xAxis: '背心',
+            yAxis: 60,
             width: 300,
             height: 300,
         },

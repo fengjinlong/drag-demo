@@ -48,6 +48,7 @@
                 :prop-value="item.propValue"
                 :element="item"
                 :xAxis="item.xAxis"
+                :yAxis="item.yAxis"
                 @input="handleInput"
             />
         </Shape>

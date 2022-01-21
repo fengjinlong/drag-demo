@@ -1,5 +1,6 @@
 export default [
     { key: 'xAxis', label: 'xAxis' }, 
+    { key: 'yAxis', label: 'yAxis' }, 
     { key: 'left', label: 'x 坐标' }, 
     { key: 'top', label: 'y 坐标' }, 
     { key: 'width', label: '宽' }, 
