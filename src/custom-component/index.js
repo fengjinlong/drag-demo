@@ -6,7 +6,6 @@ const components = [
     'VButton',
     'Group',
     'RectShape',
-    'E',
     'Bar',
 ]
 

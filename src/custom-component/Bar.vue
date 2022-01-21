@@ -1,5 +1,8 @@
 <template>
+  <!-- <div> -->
+<!-- <p>{{propValue}}</p> -->
   <div ref="dom" class="charts chart-bar"></div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -33,7 +36,7 @@ export default {
     // ...mapGetters(['getAccessId'])
   },
   methods: {
-    changeDate() {
+    changeDate(v) {
       var myChart = echarts.init(this.$refs.dom);
       // 绘制图表
       myChart.setOption({
@@ -42,14 +45,14 @@ export default {
         },
         tooltip: {},
         xAxis: {
-          data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+          data: [v, "羊毛衫", "雪纺衫"],
         },
         yAxis: {},
         series: [
           {
             name: "销量",
             type: "bar",
-            data: [5, 20, 36, 10, 10, 20],
+            data: [5, 20, 36],
           },
         ],
       });
@@ -62,9 +65,14 @@ export default {
   mounted() {
     this.$nextTick(() => {
       console.log("echarts111");
-      console.log(this.$echarts);
-      this.changeDate();
+      let v = this.element.style.xAxis + ''
+      this.changeDate(v);
     });
+  },
+  watch: {
+   'element.style.xAxis' (v) {
+this.changeDate(v);
+   }
   },
   beforeDestroy() {
     // off(window, "resize", this.resize);

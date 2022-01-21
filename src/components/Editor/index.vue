@@ -24,6 +24,9 @@
             :index="index"
             :class="{ lock: item.isLock }"
         >
+        <!-- {{componentData}}
+        {{item.component}}
+        {{item}} -->
             <component
                 :is="item.component"
                 v-if="item.component != 'v-text'"
@@ -31,6 +34,8 @@
                 class="component"
                 :style="getComponentStyle(item.style)"
                 :prop-value="item.propValue"
+                :xAxis="item.xAxis"
+
                 :element="item"
             />
 
@@ -42,6 +47,7 @@
                 :style="getComponentStyle(item.style)"
                 :prop-value="item.propValue"
                 :element="item"
+                :xAxis="item.xAxis"
                 @input="handleInput"
             />
         </Shape>

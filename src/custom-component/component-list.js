@@ -17,22 +17,14 @@ const list = [
         component: 'Bar',
         label: 'bar',
         icon: 'wenben',
-        propValue: ['双'],
+        propValue: ["衬衫", "羊毛衫", "雪纺衫"],
         style: {
+            xAxis: 'x1',
             width: 300,
-            height: 300, 
+            height: 300,
         },
     },
-    {
-        component: 'E',
-        label: 'eachars',
-        icon: 'wenben',
-        propValue: '双击编辑文字',
-        style: {
-            width: 100,
-            height: 60, 
-        },
-    },
+
     {
         component: 'v-text',
         label: '文字',
