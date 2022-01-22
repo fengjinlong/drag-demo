@@ -10,6 +10,7 @@ export default async function runAnimation($el, animations = []) {
             $el.style.removeProperty('--time')
             resolve()
         }
+        
             
         $el.addEventListener('animationend', removeAnimation)
         $el.addEventListener('animationcancel', removeAnimation)
